@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class="container vh-100">
+    <div class="row mimb-1" bis_skin_checked="1">
+        {% for claim in claims %}
+        <div class="col-lg-4 col-md-6 mt-3" bis_skin_checked="1">
+            <a class="text-white text-decoration-none" href="claim/{{ claim.id }}">
+            <div class="card text-white bg-dark mb-3" bis_skin_checked="1">
+                <div class="card-header">
+                    <h5 class="card-title">{{ claim.category }}</h5>
+                </div>
+                <div class="card-body" bis_skin_checked="1">
+                    <p class="card-text">{{ claim.body }}</p>
+                </div> 
+                <div class="card-footer d-flex justify-content-between align-items-end">
+                    <span>{{ claim.date }}</span>
+                    <span>{{ claim.state }}</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        {% endfor %}
+        <div class="col-lg-4 col-md-6 mt-3" bis_skin_checked="1">
+            <a class="text-white text-decoration-none" href="/add_claim">
+            <div class="card text-white bg-dark mb-3 p-4" bis_skin_checked="1">
+                <div class="card-body text-center" bis_skin_checked="1">
+                    <h1 class="display-4"><i class="bi bi-plus-lg"></i></h1>
+                </div>
+            </div>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

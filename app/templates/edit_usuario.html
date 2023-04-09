@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<main class="container-box w-100 m-auto text-white p-5 mt-5">
+    <div class="titulo">
+        <h2>Editar Usuario</h2>
+    </div>
+  {% from "includes/_formhelpers.html" import render_field %}
+  <form class="row g-3" method="POST" action="/update" enctype="multipart/form-data">
+    <input type="number" class="d-none" value="{{user.dni}}" name="dni" id="dni">
+    <div class="col-6">
+      <label for="username">Usuario</label>
+      <input type="text" class="form-control" value="{{user.username}}" name="username" id="username">
+    </div>
+    <div class="col-6">
+      <label for="role">Rol</label>
+      <input type="text" class="form-control" value="{{user.role}}" name="role" id="role">
+    </div>
+    <div class="col-6">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" value="{{user.email}}" name="email" id="email">
+    </div>
+    <div class="col-6">
+      <label for="foto">Foto de Perfil</label>
+      <img id="foto-perfil" width="200" class="rounded-circle img-fluid" src="../static/uploads/{{user.path_foto}}" alt="">
+      <input type="file" name="foto" id="foto" class="form-control" onchange="cambiarFoto()">
+    </div>
+    
+    <script>
+      function cambiarFoto() {
+        var archivoSeleccionado = document.getElementById("foto").files;
+        var imagen = document.getElementById("foto-perfil");
+        var lector = new FileReader();
+    
+        lector.onloadend = function () {
+          imagen.src = lector.result;
+        }
+        
+        if (archivoSeleccionado) {
+          lector.readAsDataURL(archivoSeleccionado);
+        } else {
+          imagen.src = "../static/uploads/{{user.path_foto}}";
+        }
+      }
+    </script>
+    
+    <div class="d-grid gap-2">
+        <button class="btn btn-miprimary" type="submit">Enviar</button>
+    </div>
+  </form>
+</main>
+{% endblock %}

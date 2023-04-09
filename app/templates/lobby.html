@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <div class="container vh-100 text-white">
+      <h1>My Chat App</h1>
+      <form action="/chat">
+        <div>
+          <label>Enter your username:</label>
+          <input type="text" name="username">
+        </div>
+        <div>
+          <label>Enter room id:</label>
+          <input type="text" name="room">
+        </div>
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<main class="container-box w-100 m-auto text-white p-5 mt-5">
+    <div class="titulo">
+        <h2>Crear Reclamo</h2>
+    </div>
+  {% from "includes/_formhelpers.html" import render_field %}
+  <form class="row g-3" method="POST" action="/add_claim" enctype="multipart/form-data">
+    <div class="col-6">
+      {{ render_field(form.category, class_="form-control") }}
+    </div>
+    <div class="col-6">
+      <label for="foto">Foto de Perfil</label>
+      <input type="file" name="foto" id="foto" class="form-control">
+    </div>
+    <div class="col-12">
+      {{ render_field(form.body, class_="form-control", id="editor") }}
+    </div>
+    <div class="col-6 d-none">
+      {{render_field(form.state, class_="form-control")}}
+    </div>
+    <div class="d-grid gap-2">
+        <button class="btn btn-miprimary" type="submit">Enviar</button>
+    </div>
+  </form>
+</main>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <div class="container vh-100">
+        <div class="container-box w-100 m-auto text-white p-3 mt-5">
+            <h1>Reclamo N°{{ claim.id }}</h1>
+            <h5>Escrito por {{ claim.name_author }} el {{ claim.date }}</h5>
+            <hr>
+            <div class="mb-5">
+                {{ claim.category }}
+                {{ claim.state }}
+                <img width="100" class="" src="../static/claims/{{ claim.foto }}" alt="">
+            </div>
+            <div class="d-flex justify-content-between">
+                <a href="{{url_for('edit_claim', id=claim.id)}}" class="btn btn-success">EDITAR</a>
+                <form action="{{url_for('delete_claim', id=claim.id)}}" method="POST">
+                    <input type="hidden" name="_method" value="ELIMINAR">
+                    <input type="submit" value="ELIMINAR" class="btn btn-danger">
+                </form>
+            </div>
+            
+        </div>
+    </div>
+{% endblock %}

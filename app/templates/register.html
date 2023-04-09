@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <main class="container-box w-100 m-auto text-white p-3 mt-4">
+    <div class="titulo">
+      <h2>Registrate</h2>
+    </div>
+    {% from "includes/_formhelpers.html" import render_field %}
+    <form class="row g-3" action="/register" method="POST" enctype="multipart/form-data">
+      <div class="col-6">
+        {{render_field(form.username, class_="form-control")}}
+      </div>
+      <div class="col-6">
+        {{render_field(form.dni, class_="form-control")}}
+      </div>
+      <div class="col-6">
+        {{render_field(form.password, class_="form-control")}}
+      </div>
+      <div class="col-6">
+        {{render_field(form.confirm, class_="form-control")}}
+      </div>
+      <div class="col-6">
+        <label for="foto">Foto de Perfil</label>
+        <input type="file" name="foto" id="foto" class="form-control">
+      </div>
+      <!-- <div class="col-6">
+        {{render_field(form.depto_no, class_="form-control")}}
+      </div> -->
+      <div class="col-3">
+        <label for="depto_piso">Piso</label>
+          <select class="form-control" id="depto_piso" name="depto_piso">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+      </div>
+      <div class="col-3">
+        <label for="depto_no">Departamento</label>
+          <select class="form-control" id="depto_no" name="depto_no">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+      </div>
+      <div class="col-12">
+        {{render_field(form.email, class_="form-control")}}
+      </div>
+      <div class="col-6 d-none">
+        {{render_field(form.role, class_="form-control")}}
+      </div>
+      <div class="d-grid gap-2">
+        <button class="btn btn-lg btn-miprimary" type="submit">Enviar</button>
+      </div>
+    </form>
+  </main>
+{% endblock %}

@@ -1,0 +1,47 @@
+<!-- inicio cabecera -->
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container">
+        <h1 class="logo"><a href="/">SISAI</a></h1>
+        <button type="button" class="nav-toggler" data-bs-toggle="collapse"  data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
+        <span></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <ul class="nav d-grid gap-2 d-sm-flex justify-content-start">
+                {% if session.logged_in %}
+                    {% if 'admin' in session.role %}
+                        <li class="nav-item">
+                            <a href="{{url_for('usuarios')}}" class="btn btn-milink" tabindex="-1" role="button" aria-disabled="true">Usuarios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{url_for('dashboard')}}" class="btn btn-milink" tabindex="-1" role="button" aria-disabled="true">Reclamos</a>
+                        </li>
+                    {% endif %}
+                    {% else %}
+                    <li class="nav-item">
+                        <a href="{{url_for('login')}}" class="btn btn-outline-miprimary" tabindex="-1" role="button" aria-disabled="true">Iniciar Sesión</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{url_for('register')}}" class="btn btn-miprimary" tabindex="-1" role="button" aria-disabled="true">Registrate</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            {% if session.logged_in %}
+                <div class="btn-group mx-3">
+                    <img width="70" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false" class="border border-dark rounded-circle dropdown-toggle" src="../static/uploads/{{session.foto}}" alt="" role="button">
+                    <ul class="dropdown-menu text-end dropdown-menu-dark dropdown-menu-end">
+                        <li class="nav-item">
+                            <a href="{{url_for('profile')}}" class="dropdown-item">Perfil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{url_for('miclaims')}}" class="dropdown-item">Mis Reclamos</a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li class="nav-item">
+                            <a href="{{url_for('logout')}}" id="sesion"class="dropdown-item">Cerrar Sesión</a>
+                        </li>
+                    </ul>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<main class="container-box w-100 m-auto text-white p-5 mt-5">
+    <div class="titulo">
+        <h2>Editar Reclamo</h2>
+    </div>
+  {% from "includes/_formhelpers.html" import render_field %}
+  <form class="row g-3" method="POST" action="/edit_claim/{{claim_id}}">
+    <div class="col-12">
+      {{ render_field(claim.category, class_="form-control") }}
+    </div>
+    <div class="col-12">
+      {{ render_field(claim.body, class_="form-control") }}
+    </div>
+    <div class="d-grid gap-2">
+        <button class="btn btn-miprimary" type="submit">Enviar</button>
+    </div>
+  </form>
+</main>
+{% endblock %}

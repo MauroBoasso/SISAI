@@ -1,0 +1,414 @@
+/* GENERALES */
+:root {
+    --miprimary-color: #8058d5;
+    --dark-miprimary-color: #4e289f;
+    --bs-blue: #0d6efd;
+    --bs-indigo: #6610f2;
+    --bs-purple: #6f42c1;
+    --bs-pink: #d63384;
+    --bs-red: #dc3545;
+    --bs-orange: #fd7e14;
+    --bs-yellow: #ffc107;
+    --bs-green: #198754;
+    --bs-teal: #20c997;
+    --bs-cyan: #0dcaf0;
+    --bs-white: #fff;
+    --bs-gray: #6c757d;
+    --bs-gray-dark: #343a40;
+    --bs-primary: #0d6efd;
+    --bs-secondary: #6c757d;
+    --bs-success: #198754;
+    --bs-info: #0dcaf0;
+    --bs-warning: #ffc107;
+    --bs-danger: #dc3545;
+    --bs-light: #f8f9fa;
+    --bs-dark: #212529;
+    --bs-black: #000000;
+}
+
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html,
+body {
+    height: 100%;
+    box-sizing: border-box;
+    background: url("../img/background2.png") no-repeat center fixed;
+    background-size: cover; 
+}
+
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--dark-miprimary-color);
+    border: 3px solid var(--dark-miprimary-color);
+}
+
+.mimb-1{
+    margin-bottom: 7rem!important;
+}
+
+.btn-miprimary{
+    color: var(--bs-dark);
+    background-color: var(--bs-white);
+}
+
+.btn-miprimary:hover {
+    color: #fff;
+    background: linear-gradient(90deg, var(--miprimary-color) 0%, var(--dark-miprimary-color) 100%);
+    border-color: var(--dark-miprimary-color);
+}
+
+.btn-milink{
+    color: var(--bs-white);
+    background-color: transparent;
+}
+
+.btn-milink:hover{
+    color: var(--miprimary-color);
+}
+
+.btn-outline-miprimary {
+    color: var(--bs-white);
+    background-color: transparent;
+    background-image: none;
+    border-color: var(--dark-miprimary-color);
+}
+.btn-outline-miprimary:hover {
+    color: #fff;
+    background: linear-gradient(90deg, var(--miprimary-color) 0%, var(--dark-miprimary-color) 100%);
+    border-color: var(--dark-miprimary-color);
+}
+
+.form-label{
+    color: #fff;
+}
+
+.color-primary{
+    color: var(--miprimary-color);
+    background: -webkit-linear-gradient(0deg, var(--miprimary-color) 20%, var(--dark-miprimary-color) 80%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.navbar{
+    border-width: 5px;
+    border-style: solid;
+    border-image: 
+        linear-gradient(
+        to bottom, 
+        var(--dark-miprimary-color), 
+        rgba(0, 0, 0, 0)
+        ) 1 100%;
+    background: transparent!important;
+}
+
+@media (max-width: 576px){
+    .navbar-collapse {
+        border-top: 1px solid var(--bs-gray-dark);
+        padding: 10px
+    }
+}
+
+h2{
+    font-size: 40px;
+}
+
+.logo{
+    margin: 0;
+}
+
+.logo a{
+    transition: all 700ms;
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 45px;
+}
+
+.logo a:hover{
+    color: var(--miprimary-color);
+    background: -webkit-linear-gradient(0deg, var(--miprimary-color) 0%, var(--dark-miprimary-color) 80%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.container-box{
+    max-width: 600px;
+    box-shadow: 7px 13px 37px rgba(0, 0, 0, .5);
+    background-color: var(--bs-dark);
+    border-width: 3px;
+    border-style: solid;
+    border-image: 
+        linear-gradient(
+        to bottom, 
+        var(--dark-miprimary-color), 
+        rgba(0, 0, 0, 0)
+        ) 1 100%;
+}
+
+.titulo{
+    width: 80%;
+    margin: 10px auto;
+    margin-bottom: 30px;
+    text-align: center;
+    border-bottom: 1px solid #fff;
+}
+
+.info{
+    color: #fff;
+}
+
+.cont-title{
+    font-size: 4.5rem;
+}
+
+.card{
+    border-radius: 1.25rem;
+    transition: all 300ms;
+}
+
+.card:hover{
+    transform: translateY(-15px);
+	box-shadow: 5px 5px 5px rgba(0,0,0, 1);
+}
+
+.card-header a{
+    font-size: 35px;
+    background: -webkit-linear-gradient(0deg, var(--miprimary-color) 0%, var(--dark-miprimary-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* NAVBAR */
+.nav-toggler{
+	height: 34px;
+	width: 44px;
+	background-color: #ffffff;
+	border-radius: 4px;
+	cursor: pointer;
+	border:none;
+	display: none;
+	margin-right: 15px;
+}
+
+.nav-toggler:focus{
+	outline: none;
+}
+
+.nav-toggler span{
+    height: 2px;
+    width: 20px;
+    background-color: #000;
+    display: block;
+    margin:auto;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nav-toggler.active span{
+	background-color: transparent;
+}
+
+.nav-toggler span::before,
+.nav-toggler span::after{
+	content: '';
+	position: absolute;
+	left:0;
+	top:0;
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+	transition: all 0.3s ease;
+}
+
+.nav-toggler span::before{
+	transform: translateY(-6px);
+}
+
+.nav-toggler.active span::before{
+	transform: rotate(45deg);
+}
+
+.nav-toggler span::after{
+	transform: translateY(6px);
+}
+
+.nav-toggler.active span::after{
+	transform: rotate(135deg);
+}
+
+@media(max-width:575px){
+
+   .nav-toggler{
+   	display: block;
+   }
+
+   .header .nav{
+   	width: 100%;
+   	padding:0;
+   	max-height: 0px;
+   	overflow: hidden;
+   	visibility: hidden;
+   	transition: all 0.5s ease;
+   }
+
+   .header .nav.open{
+   	visibility: visible;
+   }
+
+   .header .nav ul{
+   	padding:12px 15px 0;
+   	margin-top: 12px;
+   	border-top:1px solid rgba(255,255,255,0.2);
+   }
+
+   .header .nav ul li{
+   	display: block;
+   	margin:0;
+   }
+   
+}
+@media (max-width: 575px){
+    .nav-toggler {
+        display: block;
+    }
+}
+
+/* Footer */
+.grupo-1 .box figure{
+    width: 100%;
+    height: 100%;
+}
+
+.grupo-1 .box figure img{
+    max-width: 250px;
+}
+
+.grupo-1 .box h2,
+.title{
+    font-size: 20px;
+}
+
+.red-social a,
+div.red-social a{
+    display: inline-block;
+    text-decoration: none;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    color: #fff;
+    margin: 0 10px 0 10px;
+    background-color: #000000;
+    text-align: center;
+	font-size: 30px;
+    transition: all 300ms ease;
+}
+
+.red-social a:hover{
+    background: -webkit-linear-gradient(0deg, var(--miprimary-color) 0%, var(--dark-miprimary-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transform: scale(1.2,1.2);
+}
+
+.grupo-2{
+    background: linear-gradient(90deg, var(--miprimary-color) 0%, var(--dark-miprimary-color) 100%);
+}
+
+.grupo-2 small{
+    font-size: 15px;
+}
+
+@media screen and (max-width:800px){
+    .grupo-1{
+        width: 90%;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap:30px;
+        margin-bottom: 10px;
+    }
+
+    .box-1, .box-2{
+        display: none;
+    }
+}
+
+footer {
+    background: var(--bs-black);
+	position: relative;
+}
+
+/* footer .wave {
+	position: absolute;
+	top: -80px;
+	left: 0;
+	width: 100%;
+	height: 100px;
+	background: url(../img/wave.svg);
+	background-size: 1000px 100px;
+}
+
+footer .wave#wave1 {
+	z-index: 1000;
+	opacity: 1;
+	bottom: 0;
+	animation: animateWave 4s linear infinite;
+}
+
+footer .wave#wave2 {
+	z-index: 999;
+	opacity: 0.5;
+	bottom: 10px;
+	animation: animateWave_02 4s linear infinite;
+}
+
+footer .wave#wave3 {
+	z-index: 1000;
+	opacity: 0.2;
+	bottom: 15px;
+	animation: animateWave_03 3s linear infinite;
+}
+
+footer .wave#wave4 {
+	z-index: 999;
+	opacity: 0.7;
+	bottom: 20px;
+	animation: animateWave_04 2s linear infinite;
+}
+
+@keyframes animateWave {
+	0% {
+		background-position-x: 1000px;
+	}
+	100% {
+		background-position-x: 0px;
+	}
+}
+
+@keyframes animateWave_02 {
+	0% {
+		background-position-x: 0px;
+	}
+	100% {
+		background-position-x: 1000px;
+	}
+} */
+.carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2300' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+}
+
+.carousel-control-next-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2300' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+}
+
+.carousel-indicators [data-bs-target] {
+    background-color: #000;
+}

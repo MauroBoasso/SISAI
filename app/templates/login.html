@@ -1,0 +1,24 @@
+{% extends 'layout.html' %} 
+{% block title %} Login {% endblock %}
+
+{% block body %}
+<main class="container-box w-100 m-auto text-white p-3 mt-4">
+    <div class="titulo">
+        <h2>Inicia Sesión</h2>
+    </div>
+    <form class="row g-3" action="/login" method="POST">
+        <div class="col-6">
+            <input class="form-control" name="username" type="text" placeholder="Nombre de Usuario">
+        </div>
+        <div class="col-6">
+            <input class="form-control" name="dni" type="text" placeholder="Dni">
+        </div>
+        <div class="col-12">
+            <input class="form-control" name="password" type="password" placeholder="Contraseña">
+        </div>
+        <div class="d-grid gap-2">
+            <button class="btn btn-miprimary" type="submit">Enviar</button>
+        </div>
+    </form>
+</main>
+{% endblock %}

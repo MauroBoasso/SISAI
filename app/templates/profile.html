@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class="container vh-100">
+    <div class="container bg-dark d-flex text-white">
+        <div class="col-4 p-4 text-center border-end border-secondary">
+            <img width="200" class="rounded-circle img-fluid" src="../static/uploads/{{user.path_foto}}" alt="">
+            <h2>{{ user.username }}</h2>
+        </div>
+            <div class="col-8 p-5 d-flex align-items-start flex-column">
+                <div class="">
+                    <p>Nombre: {{user.username}}</p>
+                    <p>Email: {{user.email}}</p>
+                    <p>Rol: {{user.role}}</p>
+                    <p>DNI: {{user.dni}}</p>
+                    <div class="d-flex">
+                        <a href="edit_usuario/{{user.dni}}" class="btn btn-success">Editar</a>
+                        <form action="{{url_for('delete_user', dni=user.dni)}}" method="POST">
+                            <input type="hidden" name="_method" value="ELIMINAR">
+                            <input type="submit" value="ELIMINAR" class="btn btn-danger">
+                        </form>
+                    </div>
+                       
+                </div>
+            </div>
+            
+    </div>
+</div>
+
+{% endblock %}
+

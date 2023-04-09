@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class="container vh-100">
+    <section class="row p-3 my-5 d-flex">
+        <h1 class="text-white">Bienvenido {{ session.username }}</h1>
+        <div class="d-flex justify-content-end">
+            <a class="btn btn-miprimary mb-5" href="/add_claim"><i class="bi bi-plus-circle"></i> Reclamo</a>
+        </div>
+        <table class="table table-striped table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Categoria</th>
+                    <th scope="col">Descripcion</th>
+                    <th scope="col">Autor</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Estado</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for claim in claims %}
+                <tr>
+                    <th scope="row">{{claim.id }}</td>
+                    <td>{{ claim.category }}</td>
+                    <td>{{ claim.body}}</td>
+                    <td>{{ claim.name_author }}</td>
+                    <td>{{ claim.date}}</td>
+                    <td>{{ claim.state}}</td>
+                    <td><a href="edit_claim/{{claim.id}}" class="btn btn-success">Editar</a></td>
+                    <td>
+                        <form action="{{url_for('delete_claim', id=claim.id)}}" method="POST">
+                            <input type="hidden" name="_method" value="ELIMINAR">
+                            <input type="submit" value="ELIMINAR" class="btn btn-danger">
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </section>
+</div>
+{% endblock %}
